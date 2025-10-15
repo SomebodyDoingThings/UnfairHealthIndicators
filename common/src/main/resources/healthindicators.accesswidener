@@ -8,4 +8,4 @@ accessible field net/minecraft/client/render/RenderLayer$MultiPhaseParameters ph
 
 accessible field net/minecraft/client/render/RenderPhase beginAction Ljava/lang/Runnable;
 mutable field net/minecraft/client/render/RenderPhase beginAction Ljava/lang/Runnable;
-transitive-accessible	field	net/minecraft/client/gl/RenderPipelines	MATRICES_SNIPPET	Lcom/mojang/blaze3d/pipeline/RenderPipeline$Snippet;
+#transitive-accessible	field	net/minecraft/client/gl/RenderPipelines	MATRICES_SNIPPET	Lcom/mojang/blaze3d/pipeline/RenderPipeline$Snippet;

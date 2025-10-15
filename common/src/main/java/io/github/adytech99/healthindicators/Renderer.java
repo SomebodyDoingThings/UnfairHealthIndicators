@@ -7,7 +7,7 @@ import net.minecraft.client.texture.AbstractTexture;
 public abstract class Renderer {
     public static class AbstractRenderLayerTexture extends RenderPhase.TextureBase {
         public AbstractRenderLayerTexture(AbstractTexture texture) {
-            super(() -> RenderSystem.setShaderTexture(0, texture.getGlTexture()), () -> {});
+            super(() -> RenderSystem.setShaderTexture(0, texture.getGlTextureView()), () -> {});
         }
     }
 }

@@ -8,9 +8,11 @@ import io.github.adytech99.healthindicators.util.Util;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +20,7 @@ public final class HealthIndicatorsCommon {
     public static final String MOD_ID = "healthindicators";
     public static MinecraftClient client = MinecraftClient.getInstance();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final KeyBinding.Category HEALTH_INDICATORS_CATEGORY = KeyBinding.Category.create(Identifier.of(MOD_ID, "main"));
 
     private static boolean changed = false;
     private static boolean openConfig = false;

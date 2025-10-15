@@ -152,7 +152,7 @@ public class RenderTracker {
     }
 
     public static boolean isTargeted(LivingEntity livingEntity){
-        Entity camera = client.cameraEntity;
+        Entity camera = client.getCameraEntity();
         double d = ModConfig.HANDLER.instance().reach;
         double e = MathHelper.square(d);
         Vec3d vec3d = camera.getCameraPosVec(0);
@@ -166,8 +166,8 @@ public class RenderTracker {
         Vec3d vec3d3 = vec3d.add(vec3d2.x * d, vec3d2.y * d, vec3d2.z * d);
         float g = 1.0f;
         Box box = camera.getBoundingBox().stretch(vec3d2.multiply(d)).expand(1.0, 1.0, 1.0);
-        assert client.cameraEntity != null;
-        EntityHitResult entityHitResult = ProjectileUtil.raycast(client.cameraEntity, vec3d, vec3d3, box, entity -> !entity.isSpectator() && entity.canHit(), e);
+        assert client.getCameraEntity() != null;
+        EntityHitResult entityHitResult = ProjectileUtil.raycast(client.getCameraEntity(), vec3d, vec3d3, box, entity -> !entity.isSpectator() && entity.canHit(), e);
 
         if (entityHitResult != null && entityHitResult.getEntity() instanceof LivingEntity livingEntity1){
             return livingEntity1 == livingEntity;

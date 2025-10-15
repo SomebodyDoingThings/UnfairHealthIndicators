@@ -25,7 +25,7 @@ public enum HeartTypeEnum {
 
 
     public static String addHardcoreIcon(LivingEntity livingEntity){
-        if (livingEntity.getWorld().getLevelProperties().isHardcore()) return "hardcore_";
+        if (livingEntity.getEntityWorld().getLevelProperties().isHardcore()) return "hardcore_";
         else return "";
     }
 }

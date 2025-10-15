@@ -14,6 +14,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
+
+import static io.github.adytech99.healthindicators.HealthIndicatorsCommon.HEALTH_INDICATORS_CATEGORY;
 
 @Environment(EnvType.CLIENT)
 public class HealthIndicatorsFabric implements ClientModInitializer {
@@ -22,35 +25,35 @@ public class HealthIndicatorsFabric implements ClientModInitializer {
     public static final KeyBinding HEARTS_RENDERING_ENABLED = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".renderingEnabled",
             InputUtil.GLFW_KEY_LEFT,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyBinding ARMOR_RENDERING_ENABLED = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".armorRenderingEnabled",
             InputUtil.GLFW_KEY_RIGHT_SHIFT,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyBinding OVERRIDE_ALL_FILTERS = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".overrideAllFilters",
             InputUtil.GLFW_KEY_RIGHT,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
     public static final KeyBinding INCREASE_HEART_OFFSET = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".increaseHeartOffset",
             InputUtil.GLFW_KEY_UP,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
     public static final KeyBinding DECREASE_HEART_OFFSET = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".decreaseHeartOffset",
             InputUtil.GLFW_KEY_DOWN,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyBinding OPEN_CONFIG_SCREEN = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key." + MOD_ID + ".openModMenuConfig",
             InputUtil.GLFW_KEY_I,
-            "key.categories." + MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     @Override

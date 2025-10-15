@@ -16,15 +16,17 @@ import net.neoforged.fml.common.Mod;
 
 import io.github.adytech99.healthindicators.HealthIndicatorsCommon;
 import net.neoforged.fml.event.lifecycle.FMLConstructModEvent;
-import net.neoforged.jarjar.nio.util.Lazy;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.util.Lazy;
 import org.jetbrains.annotations.NotNull;
 
+import static io.github.adytech99.healthindicators.HealthIndicatorsCommon.HEALTH_INDICATORS_CATEGORY;
+
 @Mod(HealthIndicatorsCommon.MOD_ID)
-@EventBusSubscriber(value = Dist.CLIENT, modid = HealthIndicatorsCommon.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = Dist.CLIENT, modid = HealthIndicatorsCommon.MOD_ID)
 public final class HealthIndicatorsNeoForge {
 
     public static MinecraftClient client = MinecraftClient.getInstance();
@@ -32,35 +34,37 @@ public final class HealthIndicatorsNeoForge {
     public static final Lazy<KeyBinding> HEARTS_RENDERING_ENABLED = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".renderingEnabled",
             InputUtil.GLFW_KEY_LEFT,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final Lazy<KeyBinding> ARMOR_RENDERING_ENABLED = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".armorRenderingEnabled",
             InputUtil.GLFW_KEY_RIGHT_SHIFT,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final Lazy<KeyBinding> OVERRIDE_ALL_FILTERS = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".overrideAllFilters",
             InputUtil.GLFW_KEY_RIGHT,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
     public static final Lazy<KeyBinding> INCREASE_HEART_OFFSET = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".increaseHeartOffset",
             InputUtil.GLFW_KEY_UP,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID
+            HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final Lazy<KeyBinding> DECREASE_HEART_OFFSET = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".decreaseHeartOffset",
             InputUtil.GLFW_KEY_DOWN,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID));
+            HEALTH_INDICATORS_CATEGORY
+    ));
 
     public static final Lazy<KeyBinding> OPEN_CONFIG_SCREEN = Lazy.of(() -> new KeyBinding(
             "key." + HealthIndicatorsCommon.MOD_ID + ".openModMenuConfig",
             InputUtil.GLFW_KEY_I,
-            "key.categories." + HealthIndicatorsCommon.MOD_ID));
+            HEALTH_INDICATORS_CATEGORY
+    ));
 
 
 

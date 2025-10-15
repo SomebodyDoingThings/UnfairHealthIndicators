@@ -7,44 +7,45 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.entity.LivingEntity;
 import org.joml.Matrix4f;
 
-import static io.github.adytech99.healthindicators.enums.HeartTypeEnum.addHardcoreIcon;
-import static io.github.adytech99.healthindicators.enums.HeartTypeEnum.addStatusIcon;
+// ...existing code...
 
 public class RenderUtils {
     public static void drawHeart(Matrix4f model, VertexConsumer vertexConsumer, float x, HeartTypeEnum type, LivingEntity livingEntity) {
-        // The vertexConsumer is already bound to the appropriate texture
-        // We just need to draw the heart quad with the full texture coordinates
-        
+        // Delegate to opacity-aware overload at full opacity
+        drawHeart(model, vertexConsumer, x, type, livingEntity, 1.0F);
+    }
+
+    public static void drawHeart(Matrix4f model, VertexConsumer vertexConsumer, float x, HeartTypeEnum type, LivingEntity livingEntity, float opacity) {
         float minU = 0F;
         float maxU = 1F;
         float minV = 0F;
         float maxV = 1F;
 
         float heartSize = 9F;
-        
-        // Draw the heart as a quad (two triangles)
-        vertexConsumer.vertex(model, x, 0F - heartSize, 0.0F).texture(minU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x - heartSize, 0F - heartSize, 0.0F).texture(maxU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x - heartSize, 0F, 0.0F).texture(maxU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x, 0F, 0.0F).texture(minU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
+
+        vertexConsumer.vertex(model, x, 0F - heartSize, 0.0F).texture(minU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x - heartSize, 0F - heartSize, 0.0F).texture(maxU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x - heartSize, 0F, 0.0F).texture(maxU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x, 0F, 0.0F).texture(minU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
     }
 
     public static void drawArmor(Matrix4f model, VertexConsumer vertexConsumer, float x, ArmorTypeEnum type) {
-        // The vertexConsumer is already bound to the appropriate texture
-        // We just need to draw the armor quad with the full texture coordinates
-        
+        // Delegate to opacity-aware overload at full opacity
+        drawArmor(model, vertexConsumer, x, type, 1.0F);
+    }
+
+    public static void drawArmor(Matrix4f model, VertexConsumer vertexConsumer, float x, ArmorTypeEnum type, float opacity) {
         float minU = 0F;
         float maxU = 1F;
         float minV = 0F;
         float maxV = 1F;
 
         float armorSize = 9F;
-        
-        // Draw the armor icon as a quad (two triangles)
-        vertexConsumer.vertex(model, x, 0F - armorSize, 0.0F).texture(minU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x - armorSize, 0F - armorSize, 0.0F).texture(maxU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x - armorSize, 0F, 0.0F).texture(maxU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
-        vertexConsumer.vertex(model, x, 0F, 0.0F).texture(minU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, 1.0F);
+
+        vertexConsumer.vertex(model, x, 0F - armorSize, 0.0F).texture(minU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x - armorSize, 0F - armorSize, 0.0F).texture(maxU, maxV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x - armorSize, 0F, 0.0F).texture(maxU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
+        vertexConsumer.vertex(model, x, 0F, 0.0F).texture(minU, minV).light(15728880).color(1.0F, 1.0F, 1.0F, opacity);
     }
 
     public static String getHealthText(LivingEntity livingEntity) {
