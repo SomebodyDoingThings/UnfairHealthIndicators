@@ -1,9 +1,10 @@
 plugins {
-    id 'dev.architectury.loom' version '1.13-SNAPSHOT' apply false
-    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id "architectury-plugin" version "3.5-SNAPSHOT"
+    id "dev.architectury.loom-no-remap" version "1.14-SNAPSHOT" apply false
     id 'com.gradleup.shadow' version '9.2.2' apply false
     id 'io.github.pacifistmc.forgix' version "1.2.9"
 }
+
 
 architectury {
     minecraft = project.minecraft_version
@@ -31,7 +32,7 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'dev.architectury.loom-no-remap'
     apply plugin: 'architectury-plugin'
     apply plugin: 'maven-publish'
 
@@ -48,14 +49,27 @@ subprojects {
         maven { url "https://maven.terraformersmc.com/releases/"}
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
         maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
+
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Modrinth"
+                    url = "https://api.modrinth.com/maven"
+                }
+            }
+            filter {
+                includeGroup "maven.modrinth"
+            }
+        }
     }
 
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
-        mappings loom.layered {
-            it.mappings("net.fabricmc:yarn:$rootProject.yarn_mappings:v2")
-            it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$rootProject.yarn_mappings_patch_neoforge_version")
-        }
+//        mappings loom.layered {
+//            it.mappings("net.fabricmc:yarn:$rootProject.yarn_mappings:v2")
+//            it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$rootProject.yarn_mappings_patch_neoforge_version")
+//        }
+         //mappings loom.officialMojangMappings()
         annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     }
@@ -66,12 +80,12 @@ subprojects {
         // If you remove this line, sources will not be generated.
         withSourcesJar()
 
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
 
     tasks.withType(JavaCompile).configureEach {
-        it.options.release = 21
+        it.options.release = 25
     }
 
     // Configure Maven publishing.

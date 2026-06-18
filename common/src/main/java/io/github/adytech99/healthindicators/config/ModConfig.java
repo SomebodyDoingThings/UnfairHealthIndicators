@@ -4,28 +4,27 @@ import com.google.common.collect.Lists;
 import dev.architectury.platform.Platform;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
+import dev.isxander.yacl3.config.v2.api.autogen.*;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.Label;
-import dev.isxander.yacl3.config.v2.api.autogen.*;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import io.github.adytech99.healthindicators.HealthIndicatorsCommon;
 import io.github.adytech99.healthindicators.enums.HealthDisplayTypeEnum;
 import io.github.adytech99.healthindicators.enums.MessageTypeEnum;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.nio.file.Path;
 import java.util.List;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 public class ModConfig {
     public static final Path CONFIG_PATH = Platform.getConfigFolder().resolve("health_indicators_config.json");
-
     public static final ConfigClassHandler<ModConfig> HANDLER = ConfigClassHandler.createBuilder(ModConfig.class)
-            .id(Identifier.of(HealthIndicatorsCommon.MOD_ID, "config"))
+            .id(Identifier.fromNamespaceAndPath(HealthIndicatorsCommon.MOD_ID, "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(CONFIG_PATH)
                     .build())
@@ -33,11 +32,11 @@ public class ModConfig {
 
     @Label
     @AutoGen(category = "filters")
-    private final Text filtersProTip = Text.literal("Pro Tip: You can temporarily override the below criteria and force health display for all living entities by holding the Right-Arrow key (customizable)").formatted(Formatting.GOLD);
+    private final Component filtersProTip = Component.literal("Pro Tip: You can temporarily override the below criteria and force health display for all living entities by holding the Right-Arrow key (customizable)").withStyle(ChatFormatting.GOLD);
 
     @Label
     //@AutoGen(category = "filters", group = "entity_type")
-    private final Text filtersTypeLabel = Text.literal("Enable health display based on entity type").formatted(Formatting.BOLD, Formatting.AQUA);
+    private final Component filtersTypeLabel = Component.literal("Enable health display based on entity type").withStyle(ChatFormatting.BOLD, ChatFormatting.AQUA);
 
     @SerialEntry
     @AutoGen(category = "filters", group = "entity_type")
@@ -77,7 +76,7 @@ public class ModConfig {
 
     @Label
     @AutoGen(category = "filters", group = "advanced")
-    private final Text filtersAdvancedLabel = Text.literal("Show for...").formatted(Formatting.AQUA);
+    private final Component filtersAdvancedLabel = Component.literal("Show for...").withStyle(ChatFormatting.AQUA);
 
     /*@Label
     @AutoGen(category = "filters", group = "advanced")
@@ -97,7 +96,7 @@ public class ModConfig {
     @Label
     @AutoGen(category = "filters", group = "advanced")
     //private final Text damaged_only_label = Text.literal("Settings for the 'damaged entity' criteria:").formatted(Formatting.ITALIC);
-    private final Text damaged_only_label = Text.literal(" ").formatted(Formatting.ITALIC);
+    private final Component damaged_only_label = Component.literal(" ").withStyle(ChatFormatting.ITALIC);
 
     @SerialEntry
     @AutoGen(category = "filters", group = "advanced")
@@ -112,7 +111,7 @@ public class ModConfig {
     @Label
     @AutoGen(category = "filters", group = "advanced")
     //private final Text on_crosshair_label = Text.literal("Settings for the 'looking at entity' criteria:").formatted(Formatting.ITALIC);
-    private final Text looking_at_label = Text.literal(" ").formatted(Formatting.ITALIC);
+    private final Component looking_at_label = Component.literal(" ").withStyle(ChatFormatting.ITALIC);
 
     @SerialEntry
     @AutoGen(category = "filters", group = "advanced")
@@ -126,7 +125,7 @@ public class ModConfig {
 
     @Label
     @AutoGen(category = "filters", group = "advanced")
-    private final Text distance_label = Text.literal(" ").formatted(Formatting.ITALIC);
+    private final Component distance_label = Component.literal(" ").withStyle(ChatFormatting.ITALIC);
 
     @SerialEntry
     @AutoGen(category = "filters", group = "advanced")
@@ -141,7 +140,7 @@ public class ModConfig {
 
     @Label
     @AutoGen(category = "filters", group = "advanced")
-    private final Text override_players_label = Text.literal("Overrides").formatted(Formatting.ITALIC);
+    private final Component override_players_label = Component.literal("Overrides").withStyle(ChatFormatting.ITALIC);
 
     @SerialEntry
     @AutoGen(category = "filters", group = "advanced")
@@ -164,7 +163,7 @@ public class ModConfig {
 
     @AutoGen(category = "appearance", group = "indicator_type")
     @Label
-    private final Text heart_type_settings_label = Text.literal("Settings for the heart-type indicator");
+    private final Component heart_type_settings_label = Component.literal("Settings for the heart-type indicator");
 
     @SerialEntry
     @AutoGen(category = "appearance", group = "indicator_type")
@@ -188,7 +187,7 @@ public class ModConfig {
 
     @AutoGen(category = "appearance", group = "indicator_type")
     @Label
-    private final Text number_type_settings_label = Text.literal("Settings for the number-type indicator");
+    private final Component number_type_settings_label = Component.literal("Settings for the number-type indicator");
 
     @SerialEntry
     @AutoGen(category = "appearance", group = "indicator_type")
@@ -217,7 +216,7 @@ public class ModConfig {
 
     @AutoGen(category = "appearance", group = "indicator_type")
     @Label
-    private final Text common_type_settings_label = Text.literal("Common settings for all indicator types");
+    private final Component common_type_settings_label = Component.literal("Common settings for all indicator types");
 
     @SerialEntry
     @AutoGen(category = "appearance", group = "indicator_type")
@@ -266,7 +265,7 @@ public class ModConfig {
 
     @Label
     @AutoGen(category = "messages", group = "commands")
-    private final Text commandsRestartWarning = Text.literal("For this section, a restart is required to apply any modifications").formatted(Formatting.RED);
+    private final Component commandsRestartWarning = Component.literal("For this section, a restart is required to apply any modifications").withStyle(ChatFormatting.RED);
 
     @SerialEntry
     @AutoGen(category = "messages", group = "commands")

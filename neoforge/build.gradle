@@ -44,11 +44,11 @@ dependencies {
     neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
 
     // Architectury API. This is optional, and you can comment it out if you don't need it.
-    modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
-    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_neoforge}"
+    implementation("dev.architectury:architectury-neoforge:$rootProject.architectury_api_version")
+    api("dev.isxander:yet-another-config-lib:${project.yacl_neoforge}")
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.6.0'
 
-    common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    common(project(path: ':common')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
 }
 
@@ -65,6 +65,6 @@ shadowJar {
     archiveClassifier = 'dev-shadow'
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-}
+//jar {
+//    input.set shadowJar.archiveFile
+//}

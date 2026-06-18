@@ -29,18 +29,21 @@ configurations {
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:$project.fabric_loader_version"
+    implementation("net.fabricmc:fabric-loader:$project.fabric_loader_version")
     // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation "net.fabricmc.fabric-api:fabric-api:$project.fabric_api_version"
+    implementation("net.fabricmc.fabric-api:fabric-api:$project.fabric_api_version")
     // Architectury API. This is optional, and you can comment it out if you don't need it.
-    modImplementation "dev.architectury:architectury-fabric:$project.architectury_api_version"
+    //implementation("dev.architectury:architectury-fabric:$project.architectury_api_version")
+    implementation("maven.modrinth:architectury-api:${project.architectury_api_version}+fabric")
+    //implementation("maven.modrinth:fabric-api:${project.fabric_api_version}")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
-    modApi "com.terraformersmc:modmenu:${project.modmenu}"
-    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_fabric}"
+    implementation("net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version")
+    api "com.terraformersmc:modmenu:${project.modmenu}"
+    api("dev.isxander:yet-another-config-lib:${project.yacl_fabric}")
 
-    common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    //common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    common(project(path: ':common')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 }
 
@@ -57,6 +60,6 @@ shadowJar {
     archiveClassifier = 'dev-shadow'
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-}
+//jar {
+//    input.set shadowJar.archiveFile
+//}
