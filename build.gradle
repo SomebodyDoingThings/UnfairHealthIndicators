@@ -2,28 +2,11 @@ plugins {
     id "architectury-plugin" version "3.5-SNAPSHOT"
     id "dev.architectury.loom-no-remap" version "1.14-SNAPSHOT" apply false
     id 'com.gradleup.shadow' version '9.2.2' apply false
-    id 'io.github.pacifistmc.forgix' version "1.2.9"
+    // id 'io.github.pacifistmc.forgix' version "2.0.0-SNAPSHOT.5.1"
 }
-
 
 architectury {
     minecraft = project.minecraft_version
-}
-
-forgix {
-    group = rootProject.maven_group
-    mergedJarName = "HealthIndicators-${rootProject.mod_version}.jar"
-
-    neoforge {
-        projectName = "neoforge"
-        jarLocation = "build/libs/HealthIndicators-neoforge-${rootProject.mod_version}.jar"
-//        mixin "neoforge/src/main/resources/jahealthindicators.mixins.json"
-    }
-    fabric {
-        projectName = "fabric"
-        jarLocation = "build/libs/HealthIndicators-fabric-${rootProject.mod_version}.jar"
-//        mixin "fabric/src/main/resources/healthindicators.mixins.json"
-    }
 }
 
 allprojects {
@@ -37,7 +20,6 @@ subprojects {
     apply plugin: 'maven-publish'
 
     base {
-        // Set up a suffixed format for the mod jar names, e.g. `example-fabric`.
         archivesName = "$rootProject.archives_name-$project.name"
     }
 
@@ -105,6 +87,6 @@ subprojects {
             // retrieving dependencies.
         }
     }
-    build.finalizedBy(mergeJars)
-    assemble.finalizedBy(mergeJars)
+//    build.finalizedBy(mergeJars)
+//    assemble.finalizedBy(mergeJars)
 }

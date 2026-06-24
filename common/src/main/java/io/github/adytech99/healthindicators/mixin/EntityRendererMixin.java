@@ -17,7 +17,6 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
@@ -59,14 +58,10 @@ public abstract class EntityRendererMixin<T extends LivingEntity, S extends Livi
         // Using WeakHashMap ensures render states are garbage collected when no longer needed
         ENTITY_MAP.put(livingEntityRenderState, livingEntity);
     }
-    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/EntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V", at = @At("TAIL"), remap = false)
-    public void render(EntityRenderState entityRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci) {
-        // Cast to LivingEntityRenderState — S extends LivingEntityRenderState in LivingEntityRenderer
-        LivingEntityRenderState livingEntityRenderState = (LivingEntityRenderState) entityRenderState;
-        OrderedSubmitNodeCollector orderedQueue = (OrderedSubmitNodeCollector) submitNodeCollector;
-
+    @Inject(method = "submit(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V", at = @At("TAIL"), remap = false)
+    public void render(S livingEntityRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState, CallbackInfo ci) {
         // Retrieve the entity from the map
-        LivingEntity livingEntity = ENTITY_MAP.get(entityRenderState);
+        LivingEntity livingEntity = ENTITY_MAP.get(livingEntityRenderState);
 
         if (livingEntity != null && (RenderTracker.isInUUIDS(livingEntity) || (Config.getOverrideAllFiltersEnabled() && !RenderTracker.isInvalid(livingEntity)))) {
             if (Config.getHeartsRenderingEnabled() || Config.getOverrideAllFiltersEnabled()) {
