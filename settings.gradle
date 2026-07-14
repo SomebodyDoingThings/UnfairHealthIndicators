@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'healthindicators'
+rootProject.name = 'unfairhealthindicators'
 
 include 'common'
 include 'fabric'
