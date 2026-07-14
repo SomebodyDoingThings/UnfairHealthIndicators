@@ -1,1 +1,3 @@
-See [Modrinth](https://modrinth.com/mod/health-indicators) / [CurseForge](https://www.curseforge.com/minecraft/mc-mods/health-indicator) page for description
+a modified version of the [original Health Indicators](https://modrinth.com/mod/health-indicators) mod
+
+this version lets you see other healthbars through walls
