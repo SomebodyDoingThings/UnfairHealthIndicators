@@ -3,26 +3,16 @@
   "id": "healthindicators",
   "version": "${version}",
 
-  "name": "Health Indicators",
+  "name": "Unfair Health Indicators",
   "description": "Simple damage indicator mod that shows a floating health bar (or number) above Players and Mobs.",
-  "authors": ["AdyTech99"],
+  "authors": ["AdyTech99","fork: SomebodyDoingThings"],
   "contributors": [
     "Translation key (ru_ru): Alexander317"
   ],
 
   "contact": {
-    "homepage": "https://modrinth.com/mod/health-indicators",
-    "sources": "https://github.com/AdyTech99/HealthIndicators",
-    "issues": "https://github.com/AdyTech99/HealthIndicators/issues"
-  },
-
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.com/invite/4eWX2duHfJ"
-      },
-      "update_checker": true
-    }
+    "sources": "https://github.com/SomebodyDoingThings/UnfairHealthIndicators",
+    "issues": "https://github.com/SomebodyDoingThings/UnfairHealthIndicators/issues"
   },
 
   "license": "LGPL v3",
