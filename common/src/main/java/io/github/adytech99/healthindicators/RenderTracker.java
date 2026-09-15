@@ -186,7 +186,6 @@ public class RenderTracker {
                 || !(entity instanceof LivingEntity)
                 || client.player == null
                 || client.player.getVehicle() == entity
-                || entity.isInvisibleTo(client.player));
     }
     private static Entity getEntityFromUUID(UUID uuid, ClientLevel world) {
         for (Entity entity : world.entitiesForRendering()) {
