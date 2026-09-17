@@ -3,16 +3,26 @@
   "id": "healthindicators",
   "version": "${version}",
 
-  "name": "Unfair Health Indicators",
+  "name": "Health Indicators",
   "description": "Simple damage indicator mod that shows a floating health bar (or number) above Players and Mobs.",
-  "authors": ["AdyTech99","fork: SomebodyDoingThings"],
+  "authors": ["AdyTech99"],
   "contributors": [
     "Translation key (ru_ru): Alexander317"
   ],
 
   "contact": {
-    "sources": "https://github.com/SomebodyDoingThings/UnfairHealthIndicators",
-    "issues": "https://github.com/SomebodyDoingThings/UnfairHealthIndicators/issues"
+    "homepage": "https://modrinth.com/mod/health-indicators",
+    "sources": "https://github.com/AdyTech99/HealthIndicators",
+    "issues": "https://github.com/AdyTech99/HealthIndicators/issues"
+  },
+
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.com/invite/4eWX2duHfJ"
+      },
+      "update_checker": true
+    }
   },
 
   "license": "LGPL v3",
@@ -24,18 +34,5 @@
       "io.github.adytech99.healthindicators.fabric.HealthIndicatorsFabric"
     ],
     "modmenu" : ["io.github.adytech99.healthindicators.fabric.config.ModMenuAPIImpl"]
-  },
-  "accessWidener": "healthindicators.accesswidener",
-  "mixins": [
-    "healthindicators.mixins.json"
-  ],
 
-  "depends": {
-    "fabricloader": ">=0.19.3",
-    "fabric-api": "*",
-    "minecraft": ">=26.1",
-    "architectury": ">=19.0.1",
-    "yet_another_config_lib_v3": "*",
-    "java": ">=21"
   }
-}
