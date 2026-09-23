@@ -3,6 +3,4 @@ a modified version of the [original Health Indicators](https://modrinth.com/mod/
 differences:
 - you can see healthbars through walls
 - you can see healthbars for invisible entities
-
-## important information
-i have not tested the neoforge version, it's included in the releases but i don't know if it works (it should though).
+- it works on 26.3 (the original has not updated as of september 23rd, 2026)
