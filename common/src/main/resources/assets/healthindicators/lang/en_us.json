@@ -155,7 +155,7 @@
   "yacl3.config.healthindicators:config.category.messages.group.commands": "Mod Commands",
 
 
-  "key.categories.healthindicators.main": "Health Indicators",
+  "key.category.healthindicators.main": "Health Indicators",
   "key.healthindicators.renderingEnabled": "Toggle Rendering",
   "key.healthindicators.armorRenderingEnabled": "Toggle Armor Points Rendering",
   "key.healthindicators.overrideAllFilters": "Override all config filters",

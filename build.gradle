@@ -1,7 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.5-SNAPSHOT"
-    id "dev.architectury.loom-no-remap" version "1.14-SNAPSHOT" apply false
-    id 'com.gradleup.shadow' version '9.2.2' apply false
+    id "dev.architectury.loom-no-remap" version "1.17-SNAPSHOT" apply false
+    id 'com.gradleup.shadow' version '9.6.0' apply false
     // id 'io.github.pacifistmc.forgix' version "2.0.0-SNAPSHOT.5.1"
 }
 
@@ -25,12 +25,12 @@ subprojects {
 
     repositories {
         maven{
-            name 'Xander Maven'
-            url 'https://maven.isxander.dev/releases'
+            name = 'Xander Maven'
+            url = 'https://maven.isxander.dev/releases'
         }
-        maven { url "https://maven.terraformersmc.com/releases/"}
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-        maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url = "https://maven.terraformersmc.com/releases/"}
+        maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
 
         exclusiveContent {
             forRepository {
