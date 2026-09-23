@@ -105,7 +105,7 @@ public abstract class EntityRendererMixin<T extends LivingEntity, S extends Livi
         double heartDensity = 50F - (Math.max(4F - Math.ceil((double) heartsTotal / heartsPerRow), -3F) * 5F);
         double h = 0;
         // Check if entity is obstructed by blocks
-        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls && RenderTracker.isOkayToRenderThroughWalls(livingEntity); // && isEntityObstructedByBlocks(livingEntity);
+        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls; // && isEntityObstructedByBlocks(livingEntity);
         for (int isDrawingEmpty = 0; isDrawingEmpty < 2; isDrawingEmpty++) {
             //   Order 1: Empty hearts (background)
             //   Order 2: Filled hearts (foreground)
