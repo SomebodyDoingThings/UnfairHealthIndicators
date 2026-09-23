@@ -206,7 +206,7 @@ public abstract class EntityRendererMixin<T extends LivingEntity, S extends Livi
         double d = this.entityRenderDispatcher.distanceToSqr(livingEntity);
         final T entAsT = (T) livingEntity;
         String healthText = RenderUtils.getHealthText(livingEntity);
-        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls && RenderTracker.isOkayToRenderThroughWalls(livingEntity);
+        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls;
         matrixStack.pushPose();
         float scale = ModConfig.HANDLER.instance().size;
         matrixStack.translate(0, livingEntity.getBbHeight() + 0.5f, 0);
@@ -261,7 +261,7 @@ public abstract class EntityRendererMixin<T extends LivingEntity, S extends Livi
         float maxX = pixelsTotal / 2.0f;
         float scale = ModConfig.HANDLER.instance().size;
         // Check if entity is obstructed by blocks
-        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls && RenderTracker.isOkayToRenderThroughWalls(livingEntity);
+        boolean shouldRenderThroughWalls = ModConfig.HANDLER.instance().show_through_walls;
     double h = 0;
         
         for (int isDrawingEmpty = 0; isDrawingEmpty < 2; isDrawingEmpty++) {

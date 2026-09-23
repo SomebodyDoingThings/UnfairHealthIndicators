@@ -174,10 +174,6 @@ public class RenderTracker {
         return false;
     }
 
-    public static boolean isOkayToRenderThroughWalls(LivingEntity livingEntity){
-        return isTargeted(livingEntity) && !livingEntity.isAlwaysTicking();
-    }
-
     public static boolean isInvalid(Entity entity){
         return (entity == null
                 || !entity.isAlive()
