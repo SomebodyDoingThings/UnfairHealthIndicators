@@ -11,7 +11,7 @@ authors = "AdyTech99"
 description = '''
 Simple damage indicator mod that shows a floating health bar (or number) above Players and Mobs.
 '''
-logoFile = "assets/healthindicators/icon.png"
+iconFile = "assets/healthindicators/icon.png"
 
 [[dependencies.healthindicators]]
 modId = "neoforge"

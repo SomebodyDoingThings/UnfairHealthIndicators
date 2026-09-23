@@ -1,5 +1,6 @@
 package io.github.adytech99.healthindicators.fabric;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import io.github.adytech99.healthindicators.HealthIndicatorsCommon;
 import io.github.adytech99.healthindicators.RenderTracker;
 import io.github.adytech99.healthindicators.config.Config;
@@ -13,10 +14,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
-import org.lwjgl.glfw.GLFW;
-import org.lwjgl.opengl.GL;
-
-import java.security.Key;
+// import org.lwjgl.glfw.GLFW;
 
 import static io.github.adytech99.healthindicators.HealthIndicatorsCommon.HEALTH_INDICATORS_CATEGORY;
 
@@ -26,35 +24,35 @@ public class HealthIndicatorsFabric implements ClientModInitializer {
 
     public static final KeyMapping HEARTS_RENDERING_ENABLED = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".renderingEnabled",
-            GLFW.GLFW_KEY_LEFT,
+            InputConstants.KEY_LEFT,
             HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyMapping ARMOR_RENDERING_ENABLED = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".armorRenderingEnabled",
-            GLFW.GLFW_KEY_RIGHT_SHIFT,
+            InputConstants.KEY_RSHIFT,
             HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyMapping OVERRIDE_ALL_FILTERS = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".overrideAllFilters",
-            GLFW.GLFW_KEY_RIGHT,
+            InputConstants.KEY_RIGHT,
             HEALTH_INDICATORS_CATEGORY
     ));
     public static final KeyMapping INCREASE_HEART_OFFSET = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".increaseHeartOffset",
-            GLFW.GLFW_KEY_UP,
+            InputConstants.KEY_UP,
             HEALTH_INDICATORS_CATEGORY
     ));
     public static final KeyMapping DECREASE_HEART_OFFSET = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".decreaseHeartOffset",
-            GLFW.GLFW_KEY_DOWN,
+            InputConstants.KEY_DOWN,
             HEALTH_INDICATORS_CATEGORY
     ));
 
     public static final KeyMapping OPEN_CONFIG_SCREEN = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "key." + MOD_ID + ".openModMenuConfig",
-            GLFW.GLFW_KEY_I,
+            InputConstants.KEY_I,
             HEALTH_INDICATORS_CATEGORY
     ));
 

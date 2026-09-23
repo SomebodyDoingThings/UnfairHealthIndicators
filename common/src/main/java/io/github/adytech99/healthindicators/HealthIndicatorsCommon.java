@@ -36,8 +36,8 @@ public final class HealthIndicatorsCommon {
 
     public static void tick(){
         if(openConfig){
-            Screen configScreen = ModConfig.createScreen(client.screen);
-            client.setScreen(configScreen);
+            Screen configScreen = ModConfig.createScreen(client.gui.screen());
+            client.gui.setScreen(configScreen);
             openConfig = false;
         }
         if(client == null || client.level == null){
@@ -109,7 +109,7 @@ public final class HealthIndicatorsCommon {
 
     public static void disableOverrideFilters(){
         Config.setOverrideAllFiltersEnabled(false);
-        client.gui.setOverlayMessage(Component.literal(""), false);
+        client.gui.hud.setOverlayMessage(Component.literal(""), false);
     }
 
     public static void openConfigScreen(){
