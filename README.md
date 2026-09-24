@@ -1,4 +1,4 @@
-curseforge project page is awaiting approval
+modrinth/curseforge project page is awaiting approval
 
 a modified version of the original [Health Indicators](https://modrinth.com/mod/health-indicators) mod
 
