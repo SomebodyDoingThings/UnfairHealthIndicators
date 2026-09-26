@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'unfairhealthindicators'
+rootProject.name = 'HealthIndicatorsFork'
 
 include 'common'
 include 'fabric'

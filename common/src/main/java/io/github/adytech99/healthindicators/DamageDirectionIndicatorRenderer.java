@@ -118,10 +118,10 @@ public class DamageDirectionIndicatorRenderer {
             float x2 = centerX + (radius + thickness) * Mth.sin(angle2);
             float y2 = centerY - (radius + thickness) * Mth.cos(angle2);
 
-            float x1Outer = centerX + (radius + thickness + 1.0f * scale) * Mth.sin(angle1);
-            float y1Outer = centerY - (radius + thickness + 1.0f * scale) * Mth.cos(angle1);
-            float x2Outer = centerX + (radius + thickness + 1.0f * scale) * Mth.sin(angle2);
-            float y2Outer = centerY - (radius + thickness + 1.0f * scale) * Mth.cos(angle2);
+            float x1Outer = centerX + (radius + thickness + scale) * Mth.sin(angle1);
+            float y1Outer = centerY - (radius + thickness + scale) * Mth.cos(angle1);
+            float x2Outer = centerX + (radius + thickness + scale) * Mth.sin(angle2);
+            float y2Outer = centerY - (radius + thickness + scale) * Mth.cos(angle2);
 
             drawQuad(context, x1, y1, x2, y2, x2Outer, y2Outer, x1Outer, y1Outer, darkerColor);
         }
